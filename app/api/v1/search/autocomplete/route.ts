@@ -26,7 +26,7 @@ export async function GET(req: NextRequest) {
     .ilike('brand_name', `${q}%`)
     .limit(4);
 
-  const productSuggestions = (data ?? []).map((p) => ({
+  const productSuggestions = (data ?? []).map((p: any) => ({
     type: 'product',
     text: p.title,
     slug: p.slug,
@@ -34,7 +34,7 @@ export async function GET(req: NextRequest) {
     brand: p.brand_name,
   }));
 
-  const brandSuggestions = Array.from(new Set((brands ?? []).map((b) => b.brand_name).filter(Boolean))).map((b) => ({
+  const brandSuggestions = Array.from(new Set((brands ?? []).map((b: any) => b.brand_name).filter(Boolean))).map((b: any) => ({
     type: 'brand',
     text: b,
     slug: null,

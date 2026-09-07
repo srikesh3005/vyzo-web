@@ -39,7 +39,7 @@ export async function GET(
     }
 
     if (!docSnap) {
-      let query = db.collection('products');
+      let query: any = db.collection('products');
       if (isASIN) {
         console.log(`[API] Trying ASIN lookup for: ${id}`);
         query = query.where('asin', '==', id);

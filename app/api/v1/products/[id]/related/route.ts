@@ -11,7 +11,7 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
   const isASIN = /^[A-Z0-9]{10}$/.test(params.id);
   const isFirestoreId = /^[a-zA-Z0-9]{20}$/.test(params.id);
   
-  let productSnap = null;
+  let productSnap: any = null;
   if (isFirestoreId) {
     productSnap = await db.collection('products').doc(params.id).get();
   }

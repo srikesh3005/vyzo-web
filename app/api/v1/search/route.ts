@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
   if (error) return Errors.internal();
 
   return successResponse(
-    (data ?? []).map((p) => ({
+    (data ?? []).map((p: any) => ({
       id: p.id, slug: p.slug, asin: p.asin, name: p.title, brand: p.brand_name,
       price: p.price_paise ? (p.price_paise as number) / 100 : null,
       mrp: p.original_price_paise ? (p.original_price_paise as number) / 100 : null,
