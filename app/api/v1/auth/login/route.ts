@@ -9,6 +9,8 @@ import { verifyPassword, signAccessToken, signRefreshToken } from '@/lib/utils/a
 import { rateLimit_auth, getClientIp } from '@/lib/utils/rate-limit';
 import crypto from 'crypto';
 
+export const dynamic = "force-dynamic";
+
 const LoginSchema = z.object({
   email: z.string().email().toLowerCase(),
   password: z.string().min(1),

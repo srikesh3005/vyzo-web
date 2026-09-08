@@ -6,6 +6,8 @@ import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAuth, AuthError } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   let user;
   try { user = await requireAuth(req); } catch (e) {

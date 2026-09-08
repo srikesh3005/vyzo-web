@@ -8,6 +8,8 @@ import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { rateLimit_search, getClientIp } from '@/lib/utils/rate-limit';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const ip = getClientIp(req.headers);
   const rl = rateLimit_search(ip);

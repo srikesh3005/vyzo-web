@@ -7,6 +7,8 @@ import { db } from '@/lib/db/client';
 import { successResponse } from '@/lib/utils/response';
 import crypto from 'crypto';
 
+export const dynamic = "force-dynamic";
+
 const LogoutSchema = z.object({ refresh_token: z.string().optional() });
 
 export async function POST(req: NextRequest) {

@@ -7,6 +7,8 @@ import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAdmin, AuthError } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   try { await requireAdmin(req); } catch (e) {
     if (e instanceof AuthError) return e.status === 401 ? Errors.unauthorized(e.message) : Errors.forbidden(e.message);

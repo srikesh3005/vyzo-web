@@ -13,6 +13,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { getAuthFromRequest } from '@/lib/utils/auth-server';
 import { FieldValue } from 'firebase-admin/firestore';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: string } }

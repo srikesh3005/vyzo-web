@@ -8,6 +8,8 @@ import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAuth, AuthError } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 async function getOrCreateWishlist(userId: string) {
   const { data: existing } = await db.from('wishlists').select('id').eq('user_id', userId).eq('is_default', true).single();
   if (existing) return existing.id;

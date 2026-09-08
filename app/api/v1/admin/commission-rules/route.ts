@@ -10,6 +10,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAdmin, AuthError, logAudit } from '@/lib/utils/auth-server';
 import { getClientIp } from '@/lib/utils/rate-limit';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   try { await requireAdmin(req); } catch (e) {
     if (e instanceof AuthError) return e.status === 401 ? Errors.unauthorized(e.message) : Errors.forbidden(e.message);

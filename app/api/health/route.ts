@@ -5,6 +5,8 @@
 import { NextRequest } from 'next/server';
 import { db } from '@/lib/db/client';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(_req: NextRequest) {
   const start = Date.now();
 

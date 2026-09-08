@@ -11,6 +11,8 @@ import { getAuthFromRequest } from '@/lib/utils/auth-server';
 import { rateLimit_affiliateClick, getClientIp } from '@/lib/utils/rate-limit';
 import { v4 as uuidv4 } from 'uuid';
 
+export const dynamic = "force-dynamic";
+
 const RequestSchema = z.object({
   product_id: z.string().uuid(),
   campaign: z.string().max(100).optional(),

@@ -10,6 +10,8 @@ import { AIProductService } from '@/lib/services/ai-product.service';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { getAuthFromRequest } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 const aiService = new AIProductService();
 
 export async function GET(req: NextRequest, { params }: { params: { productId: string } }) {

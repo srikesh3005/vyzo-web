@@ -9,6 +9,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAuth } from '@/lib/utils/auth-server';
 import { AuthError } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   let user;
   try { user = await requireAuth(req); } catch (e) {

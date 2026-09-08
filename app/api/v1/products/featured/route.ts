@@ -5,6 +5,8 @@ import { NextRequest } from 'next/server';
 import { db } from '@/lib/firebase/admin';
 import { successResponse, Errors } from '@/lib/utils/response';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const limit = Math.min(50, parseInt(req.nextUrl.searchParams.get('limit') || '8', 10));
 

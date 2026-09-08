@@ -8,6 +8,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { rateLimit_search, getClientIp } from '@/lib/utils/rate-limit';
 import { isAmazonUrl } from '@/lib/amazon/asin';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const ip = getClientIp(req.headers);
   const rl = rateLimit_search(ip);

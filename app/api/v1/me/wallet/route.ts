@@ -8,6 +8,8 @@ import { WalletService } from '@/lib/services/wallet.service';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAuth, AuthError } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 const walletService = new WalletService();
 
 export async function GET(req: NextRequest) {

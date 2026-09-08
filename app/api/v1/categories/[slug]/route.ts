@@ -6,6 +6,8 @@ import { NextRequest } from 'next/server';
 import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
   const { data: category, error } = await db.from('categories')
     .select('id, slug, name, icon, description, image_url, parent_id, sort_order')

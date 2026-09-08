@@ -6,6 +6,8 @@ import { db } from '@/lib/db/client';
 import { successResponse, Errors } from '@/lib/utils/response';
 import { getClientIp, checkRateLimit } from '@/lib/utils/rate-limit';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   const ip = getClientIp(req.headers);
   const rl = checkRateLimit(`autocomplete:ip:${ip}`, 200, 60);

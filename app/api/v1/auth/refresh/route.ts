@@ -8,6 +8,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { verifyRefreshToken, signAccessToken, signRefreshToken } from '@/lib/utils/auth-server';
 import crypto from 'crypto';
 
+export const dynamic = "force-dynamic";
+
 const RefreshSchema = z.object({ refresh_token: z.string() });
 
 export async function POST(req: NextRequest) {

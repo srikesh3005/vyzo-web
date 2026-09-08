@@ -8,6 +8,8 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { successResponse } from '@/lib/utils/response';
 import { getAuthFromRequest } from '@/lib/utils/auth-server';
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   const user = await getAuthFromRequest(req);
   const { id } = params;

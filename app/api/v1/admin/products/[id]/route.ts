@@ -10,6 +10,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAdmin, AuthError, logAudit } from '@/lib/utils/auth-server';
 import { getClientIp } from '@/lib/utils/rate-limit';
 
+export const dynamic = "force-dynamic";
+
 const UpdateSchema = z.object({
   title: z.string().min(3).max(500).optional(),
   brand_name: z.string().max(100).optional(),

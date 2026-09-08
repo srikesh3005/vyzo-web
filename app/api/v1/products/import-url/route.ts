@@ -30,6 +30,8 @@ import { getAuthFromRequest } from '@/lib/utils/auth-server';
 import { generateSlug } from '@/lib/utils/slug';
 import { logger, generateRequestId } from '@/lib/utils/logger';
 
+export const dynamic = "force-dynamic";
+
 const RequestSchema = z.object({
   url: z.string().url('Please provide a valid URL.').max(2000),
 });

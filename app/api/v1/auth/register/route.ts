@@ -9,6 +9,8 @@ import { hashPassword, signAccessToken, signRefreshToken } from '@/lib/utils/aut
 import { rateLimit_auth, getClientIp } from '@/lib/utils/rate-limit';
 import crypto from 'crypto';
 
+export const dynamic = "force-dynamic";
+
 const RegisterSchema = z.object({
   email: z.string().email().toLowerCase(),
   password: z.string().min(8, 'Password must be at least 8 characters.').max(128),

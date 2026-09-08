@@ -9,6 +9,8 @@ import { successResponse, Errors } from '@/lib/utils/response';
 import { requireAdmin, AuthError, logAudit } from '@/lib/utils/auth-server';
 import { getClientIp } from '@/lib/utils/rate-limit';
 
+export const dynamic = "force-dynamic";
+
 export async function GET(req: NextRequest) {
   let admin;
   try { admin = await requireAdmin(req); } catch (e) {

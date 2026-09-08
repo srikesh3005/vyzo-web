@@ -8,6 +8,8 @@ import { db } from '@/lib/firebase/admin';
 import { FieldPath } from 'firebase-admin/firestore';
 import { successResponse, Errors } from '@/lib/utils/response';
 
+export const dynamic = "force-dynamic";
+
 const CompareSchema = z.object({
   product_ids: z.array(z.string()).min(2).max(4),
 });
