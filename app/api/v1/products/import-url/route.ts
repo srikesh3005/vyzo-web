@@ -154,10 +154,14 @@ export async function POST(req: NextRequest) {
   try {
     providerProduct = await provider.fetchProduct(asin);
   } catch (err) {
-    logger.error('Product provider failed', { request_id: requestId, asin, error: String(err) });
+    const errStr = String(err);
+    logger.error('Product provider failed', { request_id: requestId, asin, error: errStr });
     await submissionInsertPromise;
-    await submissionRef.update({ status: 'FAILED', error_msg: String(err), updated_at: new Date().toISOString() });
-    return Errors.internal('Failed to fetch product information. Please try again.');
+    await submissionRef.update({ status: 'FAILED', error_msg: errStr, updated_at: new Date().toISOString() });
+    // Amazon blocks datacenter IPs — give a helpful message
+    return Errors.internal(
+      'Could not fetch product details from Amazon. Amazon may be blocking the request. Please try again in a few minutes.'
+    );
   }
 
   if (!providerProduct) {
