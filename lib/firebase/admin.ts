@@ -8,7 +8,11 @@ if (!getApps().length) {
     // If the FIREBASE_SERVICE_ACCOUNT_KEY env var is present, use it.
     // Otherwise use default application credentials (e.g. for deployed environments like Vercel/Netlify)
     if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
-      const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY);
+      let rawKey = process.env.FIREBASE_SERVICE_ACCOUNT_KEY;
+      if (rawKey.startsWith("'") && rawKey.endsWith("'")) {
+        rawKey = rawKey.slice(1, -1);
+      }
+      const serviceAccount = JSON.parse(rawKey);
       initializeApp({
         credential: cert(serviceAccount),
       });
