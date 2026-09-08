@@ -1,13 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { headers } from 'next/headers';
 import { db } from '@/lib/firebase/admin';
 import { getAuthFromRequest } from '@/lib/utils/auth-server';
 import { logger } from '@/lib/utils/logger';
 import { getClientIp } from '@/lib/utils/rate-limit';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(
   req: NextRequest,
   { params }: { params: { productId: string } }
 ) {
+  // Force dynamic rendering bailout immediately
+  headers();
   const { productId } = params;
 
   try {

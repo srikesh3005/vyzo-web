@@ -21,5 +21,5 @@ if (!getApps().length) {
   }
 }
 
-export const db = getFirestore();
-export const auth = getAuth();
+export const db = getApps().length > 0 ? getFirestore() : ({} as any);
+export const auth = getApps().length > 0 ? getAuth() : ({} as any);
