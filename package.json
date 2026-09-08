@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "tunnel": "lt --port 3000"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -77,5 +78,8 @@
     "uuid": "^14.0.1",
     "vaul": "^0.9.9",
     "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2"
   }
 }

@@ -17,6 +17,17 @@ const nextConfig = {
     FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
     FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
   },
+  async rewrites() {
+    if (process.env.BACKEND_URL) {
+      return [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.BACKEND_URL}/api/:path*`,
+        },
+      ];
+    }
+    return [];
+  },
 };
 
 module.exports = nextConfig;
